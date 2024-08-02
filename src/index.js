@@ -7,6 +7,7 @@ intializeDropdowns()
 validateEmail()
 selectCountry()
 validateZipcode()
+validatePassword()
 submitForm()
 
 function validateEmail() {
@@ -69,7 +70,14 @@ function submitForm() {
             tracker = 1
         }
 
-
+        if (!password.validity.valid | password.value === "") {
+            const passwordSpan = document.querySelector('.password-span')
+            passwordSpan.classList.add('error')
+            passwordSpan.classList.remove('default-message')
+            passwordSpan.textContent = "Password must contain at least 10 characters, at least 1 number and 1 letter, and at least one special character"
+            password.classList.add('invalid')
+            tracker = 1
+        }
     })
 
 }
@@ -90,9 +98,9 @@ function selectCountry() {
 function validateZipcode() {
     document.querySelector('#zipcode').addEventListener('input', () => {
         const zipcodeSpan = document.querySelector('.zipcode-span')
-        zipcodeSpan.classList.remove('invalid')
-        if (document.querySelector('#zipcode').value === "") {
-            zipcodeSpan.classList.remove('error')
+        zipcode.classList.remove('invalid')
+        zipcodeSpan.classList.remove('error')
+        if (zipcode.value === "") {
             zipcodeSpan.classList.add('default-message')
             zipcodeSpan.textContent = "Please provide a valid zipcode in the country you have selected"
             return
@@ -102,9 +110,29 @@ function validateZipcode() {
             zipcodeSpan.classList.remove('default-message')
             zipcodeSpan.textContent = "Please Provide a Valid Zipcode"
         } else {
-            zipcodeSpan.classList.remove('error')
             zipcodeSpan.classList.add('default-message')
             zipcodeSpan.textContent = "✅"
+        }
+    })
+}
+
+function validatePassword() {
+    password.addEventListener('input', () => {
+        const passwordSpan = document.querySelector('.password-span')
+        password.classList.remove('invalid')
+        passwordSpan.classList.remove('error')
+        if (password.value === "") {
+            passwordSpan.classList.add('default-message')
+            passwordSpan.textContent = "Password must contain at least 10 characters, at least 1 number and 1 letter, and at least one special character"
+            return
+        }
+        if (password.validity.valid) {
+            passwordSpan.classList.add('default-message')
+            passwordSpan.textContent = "✅"
+        } else {
+            passwordSpan.classList.add('error')
+            passwordSpan.classList.remove('default-message')
+            passwordSpan.textContent = "Password must contain at least 10 characters, at least 1 number and 1 letter, and at least one special character"
         }
     })
 }
