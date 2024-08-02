@@ -7,9 +7,9 @@ intializeDropdowns()
 validateEmail()
 submitForm()
 selectCountry()
+validateZipcode()
 
 function validateEmail() {
-    const email = document.querySelector('#email')
     email.addEventListener("input", (event) => {
         const emailSpan = document.querySelector('.email-span')
         emailSpan.classList.remove('default-message')
@@ -21,10 +21,10 @@ function validateEmail() {
         }
         if (email.validity.valid) {
             emailSpan.classList.remove('error')
-            emailSpan.textContent = "Valid Input✅"
+            emailSpan.textContent = "✅"
         } else {
             emailSpan.classList.add('error')
-            emailSpan.textContent = ""
+            emailSpan.textContent = "Please provide a valid email address"
         }
     })
 }
@@ -57,4 +57,26 @@ function selectCountry() {
             span.textContent = "Required"
         })
     }) 
+}
+
+function validateZipcode() {
+    document.querySelector('#zipcode').addEventListener('input', () => {
+        const zipcodeSpan = document.querySelector('.zipcode-span')
+        if (document.querySelector('#zipcode').value === "") {
+            zipcodeSpan.classList.remove('error')
+            zipcodeSpan.classList.add('default-message')
+            zipcodeSpan.textContent = "Please provide a valid zipcode in the country you have selected"
+            return
+        }
+        if (!zipcode.validity.valid) {
+            zipcodeSpan.classList.add('error')
+            zipcodeSpan.classList.remove('default-message')
+            zipcodeSpan.textContent = "Invalid Zipcode"
+        } else {
+            zipcodeSpan.classList.remove('error')
+            zipcodeSpan.classList.add('default-message')
+            zipcodeSpan.textContent = "✅"
+        }
+        console.log(zipcode)
+    })
 }

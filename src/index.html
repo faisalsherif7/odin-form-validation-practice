@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
-    <title>Document</title>
+    <title>Form Validation</title>
 </head>
 <body>
     <form action="" novalidate>
@@ -35,8 +35,8 @@
         
         <div class="zipcode-input-container">
             <label for="zipcode">Zipcode</label>
-            <input type="text" name="" id="zipcode">
-            <span class="zipcode-span"></span>
+            <input type="text" name="" id="zipcode" pattern="^\d{5}([\-]?\d{4})?$|^(GIR|[A-Z]\d[A-Z\d]??|[A-Z]{2}\d[A-Z\d]??)[ ]??(\d[A-Z]{2})$|\b((?:0[1-46-9]\d{3})|(?:[1-357-9]\d{4})|(?:[4][0-24-9]\d{3})|(?:[6][013-9]\d{3}))\b|^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$">
+            <span class="zipcode-span default-message">Please provide a valid zipcode in the country you have selected</span>
         </div>
 
         <div class="password-input-container">
