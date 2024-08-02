@@ -5,14 +5,15 @@ let country = null
 
 intializeDropdowns()
 validateEmail()
-submitForm()
 selectCountry()
 validateZipcode()
+submitForm()
 
 function validateEmail() {
     email.addEventListener("input", (event) => {
         const emailSpan = document.querySelector('.email-span')
         emailSpan.classList.remove('default-message')
+        email.classList.remove('invalid')
         if (email.value === "") {
             emailSpan.classList.remove('error')
             emailSpan.classList.add('default-message')
@@ -37,13 +38,40 @@ function validateCountry() {
         span.textContent = "select country bro"
         span.classList.add('error')
         span.classList.remove('default-message')
+        return false
     }
+    return true
 }
 
 function submitForm() {
     document.querySelector('.submit').addEventListener('click', () => {
-        validateCountry()
+
+        let tracker = 0
+
+        const countryValidated = validateCountry()
+        if (countryValidated === false) tracker = 1
+
+        if (!email.validity.valid | email.value === "") {
+            const emailSpan = document.querySelector('.email-span')
+            emailSpan.classList.add('error')
+            emailSpan.classList.remove('default-message')
+            emailSpan.textContent = "Please provide a valid email address"
+            email.classList.add('invalid')
+            tracker = 1
+        }
+
+        if (!zipcode.validity.valid | zipcode.value === "") {
+            const zipcodeSpan = document.querySelector('.zipcode-span')
+            zipcodeSpan.classList.add('error')
+            zipcodeSpan.classList.remove('default-message')
+            zipcodeSpan.textContent = "Please Provide a Valid Zipcode"
+            zipcode.classList.add('invalid')
+            tracker = 1
+        }
+
+
     })
+
 }
 
 function selectCountry() {
@@ -62,6 +90,7 @@ function selectCountry() {
 function validateZipcode() {
     document.querySelector('#zipcode').addEventListener('input', () => {
         const zipcodeSpan = document.querySelector('.zipcode-span')
+        zipcodeSpan.classList.remove('invalid')
         if (document.querySelector('#zipcode').value === "") {
             zipcodeSpan.classList.remove('error')
             zipcodeSpan.classList.add('default-message')
@@ -71,12 +100,11 @@ function validateZipcode() {
         if (!zipcode.validity.valid) {
             zipcodeSpan.classList.add('error')
             zipcodeSpan.classList.remove('default-message')
-            zipcodeSpan.textContent = "Invalid Zipcode"
+            zipcodeSpan.textContent = "Please Provide a Valid Zipcode"
         } else {
             zipcodeSpan.classList.remove('error')
             zipcodeSpan.classList.add('default-message')
             zipcodeSpan.textContent = "✅"
         }
-        console.log(zipcode)
     })
 }

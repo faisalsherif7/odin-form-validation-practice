@@ -39,7 +39,7 @@ input:focus {
     outline: 1.5px solid black;
 }
 
-input:invalid {
+input:invalid, .invalid {
     outline: 1px solid red;
     background-color: rgb(253, 240, 240);
 }
