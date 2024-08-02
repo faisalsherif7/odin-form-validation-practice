@@ -1,12 +1,13 @@
 import './style.css';
 import { intializeDropdowns } from './dropdown';
-import { validateEmail, validatePassword, validateZipcode } from './validate';
+import { validateConfirmPassword, validateEmail, validatePassword, validateZipcode } from './validate';
 
 intializeDropdowns()
 validateEmail()
 selectCountry()
 validateZipcode()
 validatePassword()
+validateConfirmPassword()
 submitForm()
 
 let country = null
@@ -72,5 +73,4 @@ function submitForm() {
             tracker = 1
         }
     })
-
 }

@@ -58,7 +58,34 @@ function validatePassword() {
             passwordSpan.classList.remove('default-message')
             passwordSpan.textContent = "Password must contain at least 10 characters, at least 1 number and 1 letter, and at least one special character"
         }
+        confirmPassword()
     })
 }
 
-export { validateEmail, validatePassword, validateZipcode }
+function validateConfirmPassword() {
+    const confirmPasswordElement = document.querySelector('#confirm-password')
+    confirmPasswordElement.addEventListener('input', () => {
+        confirmPassword()
+    })
+}
+
+function confirmPassword() {
+    const confirmPasswordSpan = document.querySelector('.confirm-password-span')
+    const confirmPasswordElement = document.querySelector('#confirm-password')
+    confirmPasswordElement.classList.remove('invalid')
+    confirmPasswordSpan.classList.remove('error')
+    console.log('here')
+    if (confirmPasswordElement.value === "") {
+        confirmPasswordSpan.textContent = ""
+        return
+    }
+    if (confirmPasswordElement.value === password.value) {
+        confirmPasswordSpan.textContent = "✅"
+    } else {
+        confirmPasswordElement.classList.add('invalid')
+        confirmPasswordSpan.classList.add('error')
+        confirmPasswordSpan.textContent = "Passwords do not match!"
+    }
+}
+
+export { validateEmail, validatePassword, validateZipcode, validateConfirmPassword }
