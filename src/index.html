@@ -10,13 +10,13 @@
 <body>
     <form action="" novalidate>
 
-        <div class="email-input-container">
+        <div class="email-input-container input-container">
             <label for="email">Email</label>
             <input type="email" name="" id="email">
             <span class="email-span default-message">Format a@b</span>
         </div>
 
-        <div class="country-input-container">
+        <div class="country-input-container input-container">
             <label>Country</label>
             <div class="dropdown-menu">
                 <div class="dropdown-button">
@@ -33,19 +33,19 @@
             <span class="country-span default-message">Required</span>
         </div>
         
-        <div class="zipcode-input-container">
+        <div class="zipcode-input-container input-container">
             <label for="zipcode">Zipcode</label>
             <input type="text" name="" id="zipcode" pattern="^\d{5}([\-]?\d{4})?$|^(GIR|[A-Z]\d[A-Z\d]??|[A-Z]{2}\d[A-Z\d]??)[ ]??(\d[A-Z]{2})$|\b((?:0[1-46-9]\d{3})|(?:[1-357-9]\d{4})|(?:[4][0-24-9]\d{3})|(?:[6][013-9]\d{3}))\b|^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$">
             <span class="zipcode-span default-message">Please provide a valid zipcode in the country you have selected</span>
         </div>
 
-        <div class="password-input-container">
+        <div class="password-input-container input-container">
             <label for="password">Password</label>
             <input type="password" name="" id="password">
-            <span class="password-span default-message"></span>
+            <span class="password-span default-message">Password must contain at least 10 characters, at least 1 number and 1 letter, and at least one special character</span>
         </div>
 
-        <div class="confirm-password-input-container">
+        <div class="confirm-password-input-container input-container">
             <label for="confirm-password">Confirm Password</label>
             <input type="password" name="" id="confirm-password">
             <span class="confirm-password-span"></span>

@@ -8,10 +8,20 @@ p {
     margin: 0;
 }
 
+span {
+    font-size: 14px;
+}
+
 input {
     border-radius: 5px;
     border: 1px solid silver;
     padding: 7px;
+}
+
+.input-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 form {

@@ -82,7 +82,7 @@ function selectCountry() {
             const span = document.querySelector('.country-span')
             span.classList.remove('error')
             span.classList.add('default-message')
-            span.textContent = "Required"
+            span.textContent = "✅"
         })
     }) 
 }
