@@ -1,6 +1,6 @@
 import './style.css';
 import { intializeDropdowns } from './dropdown';
-import { validateConfirmPassword, validateEmail, validatePassword, validateZipcode } from './validate';
+import { confirmPassword, validateConfirmPassword, validateEmail, validatePassword, validateZipcode } from './validate';
 
 intializeDropdowns()
 validateEmail()
@@ -71,6 +71,11 @@ function submitForm() {
             passwordSpan.textContent = "Password must contain at least 10 characters, at least 1 number and 1 letter, and at least one special character"
             password.classList.add('invalid')
             tracker = 1
+        }
+
+        const confirmPasswordElement = document.querySelector('#confirm-password')
+        if (confirmPasswordElement.value === "") {
+            confirmPasswordElement.classList.add('invalid')
         }
     })
 }
