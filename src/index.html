@@ -3,10 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="bundle.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="" novalidate>
+
+        <div class="email-input-container">
+            <label for="email">Email</label>
+            <input type="email" name="" id="email">
+            <span class="email-span default-message">Format a@b</span>
+        </div>
+
+        <div class="country-input-container">
+            <label>Country</label>
+            <div class="dropdown-menu">
+                <div class="dropdown-button">
+                    <p>Select country</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#black"><path d="M480-120 300-300l58-58 122 122 122-122 58 58-180 180ZM358-598l-58-58 180-180 180 180-58 58-122-122-122 122Z"/></svg>
+                </div>
+                <div class="dropdown-items">
+                    <p class="dropdown-item">United States</p>
+                    <p class="dropdown-item">United Kingdom</p>
+                    <p class="dropdown-item">Australia</p>
+                    <p class="dropdown-item">Germany</p>
+                </div>
+            </div>
+            <span class="country-span default-message">Required</span>
+        </div>
+        
+        <div class="zipcode-input-container">
+            <label for="zipcode">Zipcode</label>
+            <input type="text" name="" id="zipcode">
+            <span class="zipcode-span"></span>
+        </div>
+
+        <div class="password-input-container">
+            <label for="password">Password</label>
+            <input type="password" name="" id="password">
+            <span class="password-span"></span>
+        </div>
+
+        <div class="confirm-password-input-container">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" name="" id="confirm-password">
+            <span class="confirm-password-span"></span>
+        </div>
+
+        <button class="submit" type="button">Submit</button>
+    </form>
+
 </body>
 </html>
